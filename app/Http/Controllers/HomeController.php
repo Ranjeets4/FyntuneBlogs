@@ -19,7 +19,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $blogs=Blog::with(['user','category'])->latest()->paginate(8);
+        $blogs=Blog::with(['user','category'])->latest()->paginate(2);
         $categories=Category::get();
         $data=compact('blogs','categories');
         return view('index', $data);
@@ -35,7 +35,7 @@ class HomeController extends Controller
 
     public function showBlogs()
     {
-        $blogs=Blog::where(['user_id'=>Auth::user()->id])->with(['category'])->latest()->paginate(8);
+        $blogs=Blog::where(['user_id'=>Auth::user()->id])->with(['category'])->latest()->paginate(2);
         
         $data=compact('blogs');
         return view('show-blogs', $data);

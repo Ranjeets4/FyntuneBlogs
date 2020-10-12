@@ -26,10 +26,10 @@
                     <img class="img-fluid" src="{{ asset('/storage/'.$blog->image) }}" />
                     <hr/>
                     <h6 class="float-right">Category: {{$blog->category->name}}</h6>
-                    <h5>{{$blog->title}}</h5><hr>
+                    <h5>{{$blog->title}}</h5></a><hr>
                     
-                    <p>{{$blog->description}}</p>
-                </div></a>
+                    <p>{{Str::limit($blog->description,200)}}</p>
+                </div>
             </div>
             
         </div>

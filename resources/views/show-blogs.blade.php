@@ -28,7 +28,7 @@
             <td><img class="img-fluid" src="{{ asset('/storage/'.$blog->image)}}" width="100px" height="100px"/></td>
             
             <td><a href="{{ url('/show-blog-details/'.$blog->id) }}">{{$blog->title}}</a></td>
-            <td>{{$blog->description}}</td>
+            <td>{{Str::limit($blog->description,200)}}</td>
             <td>{{$blog->category->name}}</td>
             <td><a href="{{ url('/update-blog/'.$blog->id) }}">Update</a></td>
             <td><a href="{{ url('/delete-blog/'.$blog->id) }}">Delete</a></td>
@@ -39,5 +39,6 @@
     </table>
     @endif
     </div>
+    <div>{{$blogs->links()}}</div>
 </div>
 @endsection
